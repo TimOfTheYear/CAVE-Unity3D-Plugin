@@ -8,7 +8,28 @@ INSTALLATION:
 
 - Just drag the CAVE folder into an existing Unity3D project.
 
+PREPARING YOUR CAVE:
+
+  1. In the nVidia control panel, create a custom resolution that is one pixel 
+     less in both width and height than your desired resolution. (On our CAVE,
+     it is 2799x1049)
+
+  2. Under Screen Resolution, change layout to Extend This Display instead of 
+     Duplicate This Display.
+
+  3. When you launch your game, the custom resolution should be listed in the 
+     options. Select it and run the game windowed.
+
 SETUP:
+
+  -Killing Window Borders
+    
+    1. Drop a NoWindowBorder script anywhere in the first scene that loads. 
+       NOTE: DO NOT LEAVE THIS SCRIPT ENABLED WHEN TESTING IN THE UNITY EDITOR.
+
+    2. Set the variables on the NoWindowBorder script.
+          - X & Y: Should always be 0.
+          - Width & Height: Set desired width and height, on ours its 2800x1050.
 
   -3D CAVE Camera
   
