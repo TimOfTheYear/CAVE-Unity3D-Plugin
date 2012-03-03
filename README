@@ -1,0 +1,42 @@
+/***********************
+CAVE Unity3D Plugin
+by Tim Russo
+russo.tim@gmail.com
+************************/
+
+INSTALLATION:
+
+- Just drag the CAVE folder into an existing Unity3D project.
+
+SETUP:
+
+  -3D CAVE Camera
+  
+    1. Drop a CAVE Camera prefab into the scene.
+
+    2. Treat this CAVE Camera like you would any other camera object.
+
+    3. Only change the child cameras if you need to edit Skyboxes/GUI Layers/etc.
+
+    4. Finally, drop a 3D Viewer prefab into the scene somewhere out of the way.
+
+  -CAVE Multi-Screen Networking
+
+    1. Create a new scene to act as your menu.
+
+    2. Add a NetworkManagerScript somewhere in your scene.
+
+    3. Create a new script that inherits from NetworkDisplay.
+
+    4. Overload the ClientCamInit() method and add code to destroy your scripts that handle user input, then call base.ClientCamInit().
+
+    5. Add one of these new NetworkDisplay scripts to the scene and then add a reference too it in the editor to the NetworkManagerScript.
+
+    6. Fill out the other necessary attributes for NetworkManagerScript:
+          - SceneToLoad: String name of the scene you want to load that is equipped with a CAVE Camera.
+          - IP: This should be the ip of the screen acting as the server (Usually the center screen).
+          - Port: Generally, you can just keep this at 25000 and be fine.
+          - Connections: Max number of connections to server, make sure this is at least as large as the number of screens in your CAVE setup.
+          - Use NAT: This should pretty much always be disabled, since there most likely isn't a router between your CAVE computers.
+          - Use Master Server: Again, this should be pretty much always be disabled since you are probably on a LAN.
+          - Server Name & Server Description: These are only used for registering with the Master Server, so you can probably ignore them.
